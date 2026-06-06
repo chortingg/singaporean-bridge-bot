@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: bridgebot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements_bridgebot.txt
+    startCommand: python bridgebot_fixed.py
+    envVars:
+      - key: BRIDGEBOT_MODE
+        value: webhook
+      - key: WEBHOOK_PATH
+        value: telegram
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
